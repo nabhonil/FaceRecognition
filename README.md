@@ -20,5 +20,7 @@ You can execute the code as "python FaceTraining.py"
 
 You can execute the code as "python FaceRecognition.py"
 
+3. EM.py - This is a sample code which does the Extension Mobility Login of an user using Face Recognition. So once the Face of ALex is recognizied, this code will do the Cisco Extension Mobility Login for the user. The APIs for Cisco Extension Mobility are mentioned in the developer.cisco.com. 
+
 # Disclaimer
 If you see any packages are missing while executing the code, please add it as part of PIP install.
