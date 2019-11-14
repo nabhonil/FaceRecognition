@@ -1,6 +1,7 @@
 import numpy as py
 import cv2 as cv
 import os as os
+from EM import doEMLogin
 
 face_cascade = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
 
@@ -15,6 +16,7 @@ fontface = cv.FONT_HERSHEY_SIMPLEX
 fontscale = 1
 fontcolor = (0, 255, 0)
 thickness = 2
+count = 0
 
 while 1:
     ret, img = cap.read()
@@ -28,6 +30,7 @@ while 1:
             conf = "  {0}%".format(round(100 - loss))
             if (id==1):
                 name = "Alex"
+                count = count + 1
         else:
             name = "Unknown"
             conf = ""
@@ -35,6 +38,10 @@ while 1:
         cv.putText(img,name + " " + str(conf),(x,y+h),fontface, fontscale, fontcolor, thickness)
 
     cv.imshow('Video', img)
+
+    if (count==30):
+        print ("Initiating Extension Mobility Login for Alex")
+        print (doEMLogin()) 
 
     # Wait for Esc key to stop 
     key = cv.waitKey(30) & 0xff
